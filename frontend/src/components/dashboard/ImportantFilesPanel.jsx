@@ -1,7 +1,7 @@
 function ImportantFilesPanel({ files }) {
   return (
     <div className="rl-panel">
-      <h2 className="rl-panel__title">Important files</h2>
+      <h2 className="rl-panel__title">Important Files</h2>
       {files && files.length > 0 ? (
         <ul className="rl-file-list">
           {files.map((file) => (

@@ -19,20 +19,22 @@ function DashboardView({ result, repoUrl }) {
     <section className="rl-dashboard">
       <RepoOverview repository={repository} repoUrl={repoUrl} />
 
+      <FoldersPanel folders={majorFolders} />
+
       <div className="rl-dashboard__grid">
         <aside className="rl-dashboard__sidebar">
           <LanguagesPanel languages={languages} />
-          <FoldersPanel folders={majorFolders} />
           <ImportantFilesPanel files={importantFiles} />
         </aside>
 
         <div className="rl-dashboard__main">
           <AIAnalysisPanel analysis={analysis} />
-          {interviewQuestions && (
-            <InterviewQuestionsPanel questions={interviewQuestions} />
-          )}
         </div>
       </div>
+
+      {interviewQuestions && (
+        <InterviewQuestionsPanel questions={interviewQuestions} />
+      )}
     </section>
   );
 }

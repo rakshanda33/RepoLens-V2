@@ -1,28 +1,42 @@
 :root {
-  --rl-bg: #ffffff;
-  --rl-bg-subtle: #f6f8fa;
-  --rl-bg-inset: #f0f2f4;
-  --rl-border: #d1d9e0;
-  --rl-border-muted: #e5e9ee;
-  --rl-fg: #1f2328;
-  --rl-fg-muted: #59636e;
-  --rl-fg-subtle: #818b98;
-  --rl-accent: #3557ff;
-  --rl-accent-hover: #2a46e0;
-  --rl-accent-subtle: #eef1ff;
-  --rl-accent-border: #c7d0ff;
-  --rl-danger: #cf222e;
-  --rl-danger-subtle: #fff2f1;
-  --rl-danger-border: #ffc9c5;
-  --rl-radius: 6px;
-  --rl-shadow-sm: 0 1px 0 rgba(31, 35, 40, 0.04);
+  /* base surfaces */
+  --rl-bg: #0a0c10;
+  --rl-bg-raised: #10131a;
+  --rl-bg-panel: #12151c;
+  --rl-bg-inset: #191d26;
+  --rl-bg-hover: #1c212b;
 
-  --rl-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+  /* borders */
+  --rl-border: #262b36;
+  --rl-border-strong: #363d4a;
+  --rl-border-hairline: #1c202a;
+
+  /* text */
+  --rl-fg: #e7ecf2;
+  --rl-fg-muted: #9aa4b2;
+  --rl-fg-subtle: #6b7383;
+
+  /* brand green (grass/terminal, not neon) */
+  --rl-accent: #3fcf6e;
+  --rl-accent-strong: #2fae59;
+  --rl-accent-dim: #245c37;
+  --rl-accent-bg: rgba(63, 207, 110, 0.1);
+  --rl-accent-border: rgba(63, 207, 110, 0.35);
+  --rl-accent-glow: rgba(63, 207, 110, 0.25);
+
+  --rl-danger: #f0665f;
+  --rl-danger-bg: rgba(240, 102, 95, 0.1);
+  --rl-danger-border: rgba(240, 102, 95, 0.35);
+
+  --rl-radius: 4px;
+  --rl-radius-lg: 6px;
+
+  --rl-font-sans: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue",
     Helvetica, Arial, sans-serif;
   --rl-font-mono: ui-monospace, "SFMono-Regular", "SF Mono", Consolas,
     "Liberation Mono", Menlo, monospace;
 
-  color-scheme: light;
+  color-scheme: dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -40,7 +54,7 @@ body {
 }
 
 body {
-  background: var(--rl-bg-subtle);
+  background: var(--rl-bg);
   color: var(--rl-fg);
   font-family: var(--rl-font-sans);
   font-size: 15px;
@@ -71,6 +85,11 @@ a:focus-visible,
 input:focus-visible {
   outline: 2px solid var(--rl-accent);
   outline-offset: 2px;
+}
+
+::selection {
+  background: var(--rl-accent-dim);
+  color: #fff;
 }
 
 @media (prefers-reduced-motion: reduce) {
