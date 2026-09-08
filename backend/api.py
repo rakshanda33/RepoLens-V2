@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from backend.github_client import (
@@ -25,6 +26,16 @@ app = FastAPI(
     title="RepoLens API",
     description="AI-powered GitHub repository analyzer",
     version="2.0.0",
+)
+
+
+# Allow requests from the React frontend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
