@@ -1,46 +1,79 @@
-# 🔍 RepoLens
+# 🔍 RepoLens V2
 
-RepoLens is an AI-powered Python CLI tool that analyzes public GitHub repositories and explains their codebase in beginner-friendly language.
+> **Understand Any GitHub Repository.**
 
-## 🚀 Features
+RepoLens is an AI-powered web application that analyzes public GitHub repositories and explains their codebase in a beginner-friendly way.
 
-- Fetches repository data using the GitHub API
-- Detects languages, major folders, and important files
-- Reads only selected key files for efficient analysis
-- Generates:
-  - Project summary
-  - Tech stack
-  - Folder breakdown
-  - Reading guide
-  - Suggested improvement
-- `--interview` mode generates 5 interview questions about the codebase
+Enter a GitHub repository URL and get its **structure, important files, tech stack, AI-powered explanation, and repository-specific technical interview questions**.
+
+## ✨ Features
+
+* 🔗 Analyze public GitHub repositories
+* 🗺️ Repository folder map
+* 📄 Identify important files
+* 🤖 AI-powered codebase explanation
+* 🛠️ Automatic tech stack detection
+* 🎯 5 repository-specific interview questions
+* ⚡ Interactive React dashboard
 
 ## 🛠️ Tech Stack
 
-Python • GitHub REST API • Groq API • GPT-OSS • Requests • python-dotenv
+| Layer        | Technology                   |
+| ------------ | ---------------------------- |
+| **Frontend** | React, Vite, JavaScript, CSS |
+| **Backend**  | Python, FastAPI              |
+| **AI**       | Groq API, GPT-OSS            |
+| **APIs**     | GitHub REST API              |
+
+## 🏗️ Architecture
+
+```text
+React Frontend
+      ↓
+FastAPI Backend
+      ↓
+GitHub API + Groq AI
+      ↓
+Repository Analysis
+      ↓
+React Dashboard
+```
 
 ## 📁 Project Structure
 
 ```text
-RepoLens/
-├── main.py            # CLI application
-├── github_client.py   # GitHub API integration
-├── analyzer.py        # Repository analysis
-├── ai_analyzer.py     # AI analysis
-├── requirements.txt
+RepoLens-V2/
+├── backend/
+│   ├── api.py
+│   ├── main.py
+│   ├── github_client.py
+│   ├── analyzer.py
+│   ├── ai_analyzer.py
+│   └── report_generator.py
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+├── .env
 ├── .env.example
-└── .gitignore
+├── .gitignore
+├── README.md
+└── requirements.txt
 ```
 
-## ⚙️ Installation
+## ⚙️ Setup
 
-```bash
-git clone https://github.com/rakshanda33/RepoLens.git
-cd RepoLens
+### 1. Backend
+
+Create a virtual environment:
+
+```powershell
 python -m venv venv
 ```
 
-**Windows:**
+Activate it:
 
 ```powershell
 .\venv\Scripts\Activate.ps1
@@ -48,69 +81,82 @@ python -m venv venv
 
 Install dependencies:
 
-```bash
+```powershell
 pip install -r requirements.txt
 ```
 
-Create a `.env` file:
+Create a `.env` file in the project root:
 
 ```env
 GITHUB_TOKEN=your_github_token
 GROQ_API_KEY=your_groq_api_key
 ```
 
-> Never upload your `.env` file or API keys to GitHub.
+Run the backend:
 
-## ▶️ Usage
-
-Run:
-
-```bash
-python main.py
+```powershell
+uvicorn backend.api:app --reload
 ```
 
-Enter a public repository URL:
+Backend will be available at:
 
 ```text
-https://github.com/pallets/flask
+http://127.0.0.1:8000
 ```
 
-### 🎓 Interview Mode
+### 2. Frontend
 
-```bash
-python main.py --interview
+Open a new terminal:
+
+```powershell
+cd frontend
+npm install
+npm run dev
 ```
 
-Generates the repository analysis plus 5 interview questions.
+Frontend will be available at:
 
-## 💡 How It Works
+```text
+http://localhost:5173
+```
 
-1. Fetches repository metadata and structure.
-2. Identifies important folders and files.
-3. Reads selected files instead of the entire repository.
-4. Builds a compact context.
-5. Sends it to Groq AI.
-6. Generates a beginner-friendly codebase report.
+## 🔄 How It Works
 
-## 🧪 Tested On
+1. User enters a GitHub repository URL.
+2. FastAPI receives the repository URL.
+3. RepoLens fetches repository data using the GitHub REST API.
+4. Important files and repository structure are identified.
+5. Repository context is prepared for AI analysis.
+6. Groq AI analyzes the codebase.
+7. RepoLens generates explanations and technical interview questions.
+8. Results are displayed on the React dashboard.
 
-- Flask
-- Axios
+## 🚀 Future Plans
 
-## 🔐 API Keys
+* 💬 AI chat with repositories
+* 🧩 Interactive architecture visualization
+* 🔎 File-level code explanations
+* 📝 Report export
+* 🎤 Interactive interview preparation
+* ☁️ Production deployment
 
-- **GitHub Token** — Authenticates GitHub API requests and provides higher rate limits.
-- **Groq API Key** — Generates AI-powered repository explanations.
+## 📌 Environment Variables
 
-Both are stored locally in `.env` and excluded using `.gitignore`.
+The following environment variables are required:
 
-## 🚀 Future Improvements
+```env
+GITHUB_TOKEN=your_github_token
+GROQ_API_KEY=your_groq_api_key
+```
 
-- Save reports as Markdown files
-- Support more AI models
-- Add a web interface
-- Improve codebase and file analysis
+> ⚠️ Never commit your `.env` file or expose your API keys publicly.
+
+## 🤝 Contributing
+
+Contributions, suggestions, and improvements are welcome.
+
+Feel free to fork the repository, create a feature branch, and submit a pull request.
 
 ---
 
-Built with Python, GitHub API, and Groq AI 🚀
+Built with **React, Python, FastAPI, GitHub API & Groq AI** 🚀
