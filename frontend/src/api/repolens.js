@@ -1,5 +1,4 @@
 const API_BASE_URL = "https://repolens-v2.onrender.com";
-
 /**
  * Calls the RepoLens backend to analyze a public GitHub repository.
  * @param {string} repoUrl - A public GitHub repository URL.
@@ -21,7 +20,7 @@ export async function analyzeRepository(repoUrl) {
     });
   } catch {
     throw new Error(
-      "Couldn't reach the RepoLens API. Make sure the backend is running on http://127.0.0.1:8000."
+     "Couldn't reach the RepoLens API. Please try again."
     );
   }
 
