@@ -1,162 +1,94 @@
 # 🔍 RepoLens V2
 
-> **Understand Any GitHub Repository.**
+> **Understand any GitHub repository.**
 
-RepoLens is an AI-powered web application that analyzes public GitHub repositories and explains their codebase in a beginner-friendly way.
+AI-powered web app for exploring and understanding public GitHub repositories through an interactive dashboard.
 
-Enter a GitHub repository URL and get its **structure, important files, tech stack, AI-powered explanation, and repository-specific technical interview questions**.
+🔗 **Live Demo:** https://repo-lens-v2.vercel.app/
 
 ## ✨ Features
 
 * 🔗 Analyze public GitHub repositories
-* 🗺️ Repository folder map
+* 📊 Repository overview & metadata
+* 📁 Explore folders and project structure
+* 💻 Detect programming languages
 * 📄 Identify important files
-* 🤖 AI-powered codebase explanation
-* 🛠️ Automatic tech stack detection
-* 🎯 5 repository-specific interview questions
-* ⚡ Interactive React dashboard
+* 🤖 AI-powered codebase analysis
+* 📖 AI Explorer's Journal
+* 🎯 Generate 5 repository-specific interview questions
 
 ## 🛠️ Tech Stack
 
-| Layer        | Technology                   |
-| ------------ | ---------------------------- |
-| **Frontend** | React, Vite, JavaScript, CSS |
-| **Backend**  | Python, FastAPI              |
-| **AI**       | Groq API, GPT-OSS            |
-| **APIs**     | GitHub REST API              |
+| Category     | Technologies                         |
+| ------------ | ------------------------------------ |
+| **Frontend** | `React.js` `Vite` `JavaScript` `CSS` |
+| **Backend**  | `Python` `FastAPI`                   |
+| **AI**       | `Groq API` `GPT-OSS`                 |
+| **API**      | `GitHub REST API`                    |
 
 ## 🏗️ Architecture
 
 ```text
-React Frontend
-      ↓
-FastAPI Backend
-      ↓
-GitHub API + Groq AI
-      ↓
+React + Vite
+     ↓
+FastAPI
+     ↓
+GitHub REST API + Groq AI
+     ↓
 Repository Analysis
-      ↓
-React Dashboard
-```
-
-## 📁 Project Structure
-
-```text
-RepoLens-V2/
-├── backend/
-│   ├── api.py
-│   ├── main.py
-│   ├── github_client.py
-│   ├── analyzer.py
-│   ├── ai_analyzer.py
-│   └── report_generator.py
-│
-├── frontend/
-│   ├── src/
-│   ├── public/
-│   └── package.json
-│
-├── .env
-├── .env.example
-├── .gitignore
-├── README.md
-└── requirements.txt
+     ↓
+Interactive Dashboard
 ```
 
 ## ⚙️ Setup
 
-### 1. Backend
+### Backend
 
-Create a virtual environment:
-
-```powershell
+```bash
 python -m venv venv
-```
-
-Activate it:
-
-```powershell
 .\venv\Scripts\Activate.ps1
-```
-
-Install dependencies:
-
-```powershell
 pip install -r requirements.txt
-```
-
-Create a `.env` file in the project root:
-
-```env
-GITHUB_TOKEN=your_github_token
-GROQ_API_KEY=your_groq_api_key
-```
-
-Run the backend:
-
-```powershell
 uvicorn backend.api:app --reload
 ```
 
-Backend will be available at:
+### Frontend
 
-```text
-http://127.0.0.1:8000
-```
-
-### 2. Frontend
-
-Open a new terminal:
-
-```powershell
+```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-Frontend will be available at:
-
-```text
-http://localhost:5173
-```
-
-## 🔄 How It Works
-
-1. User enters a GitHub repository URL.
-2. FastAPI receives the repository URL.
-3. RepoLens fetches repository data using the GitHub REST API.
-4. Important files and repository structure are identified.
-5. Repository context is prepared for AI analysis.
-6. Groq AI analyzes the codebase.
-7. RepoLens generates explanations and technical interview questions.
-8. Results are displayed on the React dashboard.
-
-## 🚀 Future Plans
-
-* 💬 AI chat with repositories
-* 🧩 Interactive architecture visualization
-* 🔎 File-level code explanations
-* 📝 Report export
-* 🎤 Interactive interview preparation
-* ☁️ Production deployment
-
-## 📌 Environment Variables
-
-The following environment variables are required:
+Create `.env` in the project root:
 
 ```env
 GITHUB_TOKEN=your_github_token
 GROQ_API_KEY=your_groq_api_key
 ```
 
-> ⚠️ Never commit your `.env` file or expose your API keys publicly.
+## 🔐 Note
 
-## 🤝 Contributing
+> ⚠️ Never commit your `.env` file or expose API keys.
+> Verify directory paths, configuration, and environment variable names against your local setup before running.
 
-Contributions, suggestions, and improvements are welcome.
+## 🚧 Coming Next
 
-Feel free to fork the repository, create a feature branch, and submit a pull request.
+* 💬 Repository AI chat
+* 🧩 Architecture visualization
+* 🔎 File-level explanations
+* 📝 Report export
+
+## 👩‍💻 Author
+
+**Rakshanda Noor**
+B.Tech Computer Science & Engineering, Jamia Hamdard
+
+[GitHub](https://github.com/rakshanda33) · [LinkedIn](https://linkedin.com/in/rakshanda-noor-9aaa24291/)
 
 ---
 
-Built with **React, Python, FastAPI, GitHub API & Groq AI** 🚀
+<div align="center">
+
+Built with React · FastAPI · GitHub REST API · Groq AI
+
+</div>
